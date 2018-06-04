@@ -1,0 +1,19 @@
+
+<%= simple_form_for(@profile) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :dob %>
+    <%= f.input :location %>
+    <%= f.input :bio %>
+    <%= f.input :picture, as: :file %>
+    <!-- <%= f.association :user %> -->
+    <!-- link the user_id to the profiles table in the controller as a back end solution  -->
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
