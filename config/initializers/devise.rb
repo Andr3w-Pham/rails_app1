@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '74ec3a761dc3af1ff56539696cf0933c0d21eea79abe7c544cea70223379e458b944656b59e52713cd87ead9ac816cde8c1ad77a381ac4e4722da197e305e266'
+  config.secret_key = 'afca0205adb90e6d2d334bffab97712dd01ca60b10c9a478f98deecdfb93c20b533e6d97b71ce2359a7e7226a186650932f7e4ca4f357506c6c253d2e8aa506d'
   config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], access_type: "online"
 
   # ==> Controller configuration
