@@ -8,19 +8,19 @@
   <p><%= post.status %></p>
   <p><%= post.created_at.strftime("%d %B") %></p>
 <% end %> -->
-
 <div class="row">
   <div class="col-6 col-md-4">
     <%= @post.each do |post| %>
-      <p><%= image_tag post.attachments.first.image_url %></p>
-      <% if current_user%>
-        <%= link_to like_post_path(post), method: :put, remote: true do %>
-           <%= current_user.voted_as_when_voted_for(blog) == true ? "unlike" : "like" %>
+        <p><%= image_tag post.attachments.first.image_url %></p>
+        <% if current_user%>
+          <%= link_to like_post_path(post), method: :put, remote: true do %>
+             <%= current_user.voted_as_when_voted_for(post) == true ? "unlike" : "like" %>
+          <% end %>
+        <% else %>
+          <%= "like" %>
         <% end %>
-      <% else %>
-        <%= "like" %>
       <% end %>
+    </div>
+    <div class="col-6 col-md-4">placeholder</div>
+    <div class="col-6 col-md-4">placeholder</div>
   </div>
-  <div class="col-6 col-md-4">placeholder</div>
-  <div class="col-6 col-md-4">placeholder</div>
-</div>

@@ -74,7 +74,9 @@ class PostsController < ApplicationController
     when false
       @post.upvote_by current user
     else
-      redirect_to root_path
+
+    end
+    redirect_to root_path
   end
 
   def upvote
