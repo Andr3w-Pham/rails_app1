@@ -1,15 +1,10 @@
-<div class="jumbotron">
-  <h1>testApp</h1>
-
-  <!-- <p><a class="btn btn-primary btn-lg" href="/profiles/new" role="button">Learn more</a></p> -->
-  <%= link_to 'Create Profile', new_profile_path ,class: "btn btn-primary btn-lg"%>
-
-  <%= link_to 'Sign Up', new_user_registration_path ,class: "btn btn-primary btn-lg"%>
-  <br>
-  <br>
-  <%= link_to 'Sign In', new_user_session_path ,class: "btn btn-primary btn-lg"%>
-  <br>
-  <br>
-  <!-- allows user to sign out  -->
-  <%= link_to 'Sign Out', destroy_user_session_path,class: "btn btn-primary btn-lg",  method: :delete %>
-</div>
+<!-- <%= @post.each do |post| %>
+  <p><%= image_tag post.profile.picture_url %></p>
+  <p><%= post.profile.name %></p>
+  <p><%= post.profile.location %></p>
+  <p><%= image_tag post.attachments.first.image_url %></p>
+  <p>like</p>
+  <p>chat</p>
+  <p><%= post.status %></p>
+  <p><%= post.created_at.strftime("%d %B") %></p>
+<% end %> -->

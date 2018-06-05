@@ -10,14 +10,16 @@ gem 'rails', '~> 5.2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-gem 'bootstrap-sass', '~> 3.3.7'
-gem 'sass-rails', '>= 3.2'
+gem 'bootstrap', '~> 4.1.1'
+gem 'sass-rails'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'carrierwave'
 gem 'cloudinary'
+gem "font-awesome-rails"
+gem 'acts_as_votable', '~> 0.11.1'
 # Sequence Matters carrierwave MUST be loaded before cloudinary
 
 # gem 'sass-rails', '~> 5.0'
