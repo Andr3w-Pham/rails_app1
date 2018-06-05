@@ -4,6 +4,9 @@
 
   <div class="form-inputs">
     <!-- <%= f.input :image,as: :file %> -->
+    <%= @post.score %>
+    <%= link_to "upvote", like_post_path(@post), method: :put %>
+    <%= link_to "downvote", dislike_post_path(@post), method: :put %>
     <%= f.input :image,as: :file, multiple: true  %>
   </div>
 

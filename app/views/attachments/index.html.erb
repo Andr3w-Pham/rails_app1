@@ -18,6 +18,9 @@
         <td><%= attachment.post %></td>
         <td><%= link_to 'Show', post_attachment %></td>
         <td><%= link_to 'Edit', edit_attachment_path(attachment) %></td>
+        <%= attachment.score %>
+        <td><%= link_to "upvote", like_post_path(post), method: :put %></td>
+        <td><%= link_to "downvote", dislike_post_path(post), method: :put %></td>
         <td><%= link_to 'Destroy', attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

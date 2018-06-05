@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   # GET /posts
   # GET /posts.json
@@ -61,6 +61,36 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  #upvote_from user
+  #downvote_from user
+
+  def vote
+    case current_user.voted_as_when_voted_for(@post)
+    when nil
+      @post.upvote_by current_user
+    when true
+      @post.unvote_by current_user
+    when false
+      @post.upvote_by current user
+    else
+
+    end
+    redirect_to root_path
+  end
+
+  def upvote
+    @post = Post.find(params[:id])
+    @post.upvote_by current_user
+    redirect_to post_path
+  end
+
+  def downvote
+    @post = Post.find(params[:id])
+    @post.downvote_by current_user
+    redirect_to post_path
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

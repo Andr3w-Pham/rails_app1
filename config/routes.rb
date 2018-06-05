@@ -2,8 +2,13 @@ Rails.application.routes.draw do
   # resources :attachments
   # resources :posts
   resources :profiles
+
   resources :posts do
     resources :attachments
+    member do
+      put "like" => "posts#upvote"
+      put "dislike" => "posts#downvote"
+    end
   end
   # devise_for :users
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
