@@ -21,7 +21,7 @@
 <%= render 'attachments/pic' %>
 
 <% @post.attachments.each do |attachment| %>
-  <%= cl_image_tag(attachment.image_url, width: "30%", height: "30%") %>
+  <%= image_tag(attachment.image_url, width: "30%", height: "30%") %>
 <% end %>
 <!--
 <%= link_to 'Add Picture', new_post_attachment_path(@post) %> |
