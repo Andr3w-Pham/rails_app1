@@ -1,13 +1,3 @@
-<!-- <%= @post.each do |post| %>
-  <p><%= image_tag post.profile.picture_url %></p>
-  <p><%= post.profile.name %></p>
-  <p><%= post.profile.location %></p>
-  <p><%= image_tag post.attachments.first.image_url %></p>
-  <p>like</p>
-  <p>chat</p>
-  <p><%= post.status %></p>
-  <p><%= post.created_at.strftime("%d %B") %></p>
-<% end %> -->
 <div class="row">
   <div class="col-6 col-md-4">
     <%= @post.each do |post| %>
