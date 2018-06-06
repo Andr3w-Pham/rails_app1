@@ -1,13 +1,16 @@
 <div class="row">
   <div class="col-6 col-md-4">
     <h1>hello</h1>
-
-   <% @posts.each do |post|%>
-     <%= post.picture %>
-     <%= post.status %>
-   <% end %>
-
-
+    <% @posts.each do |post| %>
+        <p><%= image_tag post.attachments.first.image_url %></p>
+        <% if current_user %>
+          <%= link_to like_post_path(post), method: :put, remote: true do %>
+             <%= current_user.voted_as_when_voted_for(post) == true ? "unlike" : "like" %>
+          <% end %>
+        <% else %>
+          <%= "like" %>
+        <% end %>
+      <% end %>
     </div>
     <div class="col-6 col-md-4">placeholder</div>
     <div class="col-6 col-md-4">placeholder</div>

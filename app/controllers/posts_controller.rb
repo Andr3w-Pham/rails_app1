@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote,:vote]
 
   # GET /posts
   # GET /posts.json
