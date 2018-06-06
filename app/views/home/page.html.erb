@@ -2,7 +2,11 @@
   <div class="col-6 col-md-4">
     <h1>hello</h1>
 
-   <%= @post.status %>
+   <% @posts.each do |post|%>
+     <%= post.picture %>
+     <%= post.status %>
+   <% end %>
+
 
     </div>
     <div class="col-6 col-md-4">placeholder</div>
