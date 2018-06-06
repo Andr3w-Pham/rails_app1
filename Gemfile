@@ -18,7 +18,6 @@ gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'carrierwave'
 gem 'cloudinary'
-gem "font-awesome-rails"
 gem 'acts_as_votable', '~> 0.11.1'
 # Sequence Matters carrierwave MUST be loaded before cloudinary
 
