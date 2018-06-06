@@ -1,10 +1,8 @@
 <div class="row">
   <div class="col-6 col-md-4">
     <h1>hello</h1>
-    <%= @posts.each do |post| %>
-        <p><%= image_tag post.attachments.first.image_url %></p>
-        
-      <% end %>
+    <%= @posts %>
+
     </div>
     <div class="col-6 col-md-4">placeholder</div>
     <div class="col-6 col-md-4">placeholder</div>
