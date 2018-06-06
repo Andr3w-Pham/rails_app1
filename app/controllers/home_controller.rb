@@ -3,6 +3,6 @@ class HomeController < ApplicationController
     if user_signed_in?
       redirect_to profiles_path
     end
-    @post = Post.all
+    @posts = Post.all
   end
 end
