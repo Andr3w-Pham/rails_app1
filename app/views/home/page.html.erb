@@ -1,18 +1,30 @@
 <div class="row">
-  <div class="col-6 col-md-4">
-    <h1>hello</h1>
-    <% @posts.each do |post| %>
-        <p><%= image_tag post.attachments.first.image_url %></p>
-        <% if user_signed_in? %>
-        <%= logger.debug("testing homepage") %>
-          <%= link_to like_post_path(post), method: :put, remote: true do %>
-             <%= current_user.voted_as_when_voted_for(post) == true ? "unlike" : "like" %>
+    <div class="col-md-8">
+
+        <div class="card-body, card" style="width: 29rem;">
+
+          <% @posts.each do |post| %>
+            <p><%= image_tag post.profile.picture_url %></p>
+            <p>Name: <%= post.profile.name %></p>
+            <p>Location: <%= post.profile.location %></p>
+            <p><%= image_tag post.attachments.first.image_url %></p>
+            <!-- <p>like</p> -->
+            <% if current_user%>
+              <%= link_to like_post_path(post), method: :put, remote: true do %>
+                <%= current_user.voted_as_when_voted_for(post) == true ? "unlike" : "like" %>
+              <% end %>
+            <% else %>
+            <% end %>
+            <p><%= post.votes_for.size %> likes</p>
+            <p>Status: <%= post.status %></p>
+            <p><%= post.created_at.strftime("%d %h")%></p>
           <% end %>
-        <% else %>
-          <%= "like" %>
-        <% end %>
-      <% end %>
+        </div>
+
     </div>
-    <div class="col-6 col-md-4">placeholder</div>
-    <div class="col-6 col-md-4">placeholder</div>
-  </div>
+
+    <div class="col-md-4">
+
+
+
+</div>

@@ -1,5 +1,5 @@
 class AttachmentsController < ApplicationController
-  before_action :set_attachment, only: %i[show edit update destroy,:upvote, :downvote]
+  before_action :set_attachment, only: %i[show edit update destroy,]
   before_action :set_post
 
   # GET /attachments
@@ -59,18 +59,6 @@ end
       format.html { redirect_to attachments_url, notice: 'Attachment was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def upvote
-    @post = Post.find(params[:post_id])
-    @post.upvote_by current_user
-    redirect_to post_path
-  end
-
-  def downvote
-    @post = Post.find(params[:post_id])
-    @post.downvote_by current_user
-    redirect_to post_path
   end
 
 
