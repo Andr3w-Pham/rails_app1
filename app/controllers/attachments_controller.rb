@@ -1,6 +1,7 @@
 class AttachmentsController < ApplicationController
-  before_action :set_attachment, only: %i[show edit update destroy,]
-  before_action :set_post
+  before_action :set_attachment, only: [:show, :edit, :update, :destroy]
+  # let the attachment controller know about the blog_id being passed in the url
+  before_action :set_blog
 
   # GET /attachments
   # GET /attachments.json
@@ -10,7 +11,8 @@ class AttachmentsController < ApplicationController
 
   # GET /attachments/1
   # GET /attachments/1.json
-  def show; end
+  def show
+  end
 
   # GET /attachments/new
   def new
@@ -18,31 +20,33 @@ class AttachmentsController < ApplicationController
   end
 
   # GET /attachments/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /attachments
   # POST /attachments.json
   def create
     @attachment = Attachment.new(attachment_params)
-    @attachment.post_id = @post.id
+    # link blog id to the attachment blog_id
+    @attachment.blog_id = @blog.id
 
     respond_to do |format|
       if @attachment.save
-        format.html { redirect_to @post, notice: 'Attachment was successfully created.' }
+        format.html { redirect_to @blog, notice: 'Attachment was successfully created.' }
         format.json { render :show, status: :created, location: @attachment }
       else
         format.html { render :new }
         format.json { render json: @attachment.errors, status: :unprocessable_entity }
       end
     end
-end
+  end
 
   # PATCH/PUT /attachments/1
   # PATCH/PUT /attachments/1.json
   def update
     respond_to do |format|
       if @attachment.update(attachment_params)
-        format.html { redirect_to @post, notice: 'Attachment was successfully updated.' }
+        format.html { redirect_to @attachment, notice: 'Attachment was successfully updated.' }
         format.json { render :show, status: :ok, location: @attachment }
       else
         format.html { render :edit }
@@ -61,20 +65,17 @@ end
     end
   end
 
-
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_attachment
+      @attachment = Attachment.find(params[:id])
+    end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_attachment
-    @attachment = Attachment.find(params[:id])
-  end
-
-  def set_post
-    @post = Post.find(params[:post_id])
-  end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def attachment_params
-    params.require(:attachment).permit(:image, :post_id)
-  end
+    def set_blog
+      @blog = Blog.find(params[:blog_id])
+    end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def attachment_params
+      params.require(:attachment).permit(:image, :blog_id)
+    end
 end

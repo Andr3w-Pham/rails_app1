@@ -2,7 +2,7 @@ class CreateAttachments < ActiveRecord::Migration[5.2]
   def change
     create_table :attachments do |t|
       t.string :image
-      t.references :post, foreign_key: true
+      t.references :blog, foreign_key: true
 
       t.timestamps
     end

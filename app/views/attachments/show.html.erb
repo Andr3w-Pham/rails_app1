@@ -6,13 +6,9 @@
 </p>
 
 <p>
-  <strong>Post:</strong>
-  <%= @attachment.post %>
+  <strong>Blog:</strong>
+  <%= @attachment.blog %>
 </p>
-<p>
-  <%= @post.score %>
-  <%= link_to "upvote", like_post_path(@post), method: :put %>
-  <%= link_to "downvote", dislike_post_path(@post), method: :put %>
-</p>
+
 <%= link_to 'Edit', edit_attachment_path(@attachment) %> |
 <%= link_to 'Back', attachments_path %>

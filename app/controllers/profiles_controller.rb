@@ -1,5 +1,4 @@
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
   # GET /profiles
@@ -26,9 +25,7 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
-    # assign current logged in users id to the user_id field in profiles table
 
-    # User must be logged in otherwise you will get an ERROR
     @profile.user_id = current_user.id
 
     respond_to do |format|
@@ -74,6 +71,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:name, :dob, :location, :bio, :user_id, :picture)
+      params.require(:profile).permit(:name, :bio, :location, :dob, :user_id, :picture)
     end
 end
