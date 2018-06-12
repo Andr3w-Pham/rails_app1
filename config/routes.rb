@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :comments
-
+  root 'home#page'
   resources :posts
   resources :profiles
   # create a nested routes for attachements in the blogs
