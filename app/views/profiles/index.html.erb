@@ -6,10 +6,10 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Dob</th>
-      <th>Location</th>
       <th>Bio</th>
-      <!-- <th>User</th> -->
+      <th>Location</th>
+      <th>Dob</th>
+      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,10 +18,10 @@
     <% @profiles.each do |profile| %>
       <tr>
         <td><%= profile.name %></td>
-        <td><%= profile.dob %></td>
-        <td><%= profile.location %></td>
         <td><%= profile.bio %></td>
-        <!-- <td><%= profile.user %></td> -->
+        <td><%= profile.location %></td>
+        <td><%= profile.dob %></td>
+        <td><%= profile.user.email %></td>
         <td><%= link_to 'Show', profile %></td>
         <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
         <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>

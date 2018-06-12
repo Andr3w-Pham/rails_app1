@@ -1,8 +1,4 @@
 class Attachment < ApplicationRecord
-  belongs_to :post
+  belongs_to :blog
   mount_uploader :image, AvatarUploader
-  # acts_as_votable
-  # def score
-  #   self.get_upvotes.size - self.get_downvotes.size
-  # end
 end
