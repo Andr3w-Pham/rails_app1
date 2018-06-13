@@ -29,15 +29,6 @@
             <br>
             <span class="date"><%= blog.created_at.strftime("%d %h")%></span>
           </p>
-          <div class="comment-home">
-            <%= form_for([blog,Comment.new]) do |f| %>
-              <%= f.text_area :body, placeholder: "Add a comment"%>
-              <br>
-              <%= f.submit "Add comment" %>
-            <% end %>
-          </div>
-          <h2>Comments</h2>
-          <%= render partial: blog.comments %>
         </div>
       </div>
     </div>
