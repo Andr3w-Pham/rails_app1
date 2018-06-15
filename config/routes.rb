@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'home#page'
   resources :posts
   resources :profiles
+  resources :followings
   # create a nested routes for attachements in the blogs
   resources :blogs do
     resources :attachments
