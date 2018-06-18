@@ -19,7 +19,9 @@
 <br><br>
 <!-- loop through each of the attacghment for the bliog and display every image for that blog -->
 <% @blog.attachments.each do |attachment| %>
-      <%= image_tag(attachment.image_url) %>
+<p>
+  <%= image_tag(attachment.image_url, width: "30%", height: "30%") %>
+</p>
 <% end %>
 
 <br><br>

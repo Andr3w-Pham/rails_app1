@@ -1,8 +1,32 @@
 @import "bootstrap";
-@import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+@import url('https://fonts.googleapis.com/css?family=GreatVibes');
 
 body {
   background-color: #fafafa;
+}
+
+.newsfeed{
+  float: left;
+  margin-right: auto;
+  max-width: 614px;
+  width: 100%;
+  padding-top: 35px;
+  // margin-left: 4.5rem;
+}
+
+.followers {
+  height: 100%;
+  margin-bottom: 30px;
+  padding: 15px;
+  margin-top: 60px;
+  max-width: 400px;
+  right: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #efefef;
+  border-radius: 1%;
+
+  // margin-left: 4.5rem;
 }
 
 .bg-light {
@@ -41,7 +65,7 @@ body {
 }
 
 .card {
-  min-width: 100%;
+  min-width: 50%;
   height: 100%;
   margin: 5rem;
 }
@@ -74,25 +98,3 @@ body {
 .date {
   color: #adb3bc;
 }
-
-// textarea {
-//   -webkit-appearance: textarea;
-//   background-color: white;
-//   -webkit-rtl-ordering: logical;
-//   flex-direction: row;
-//   resize: auto;
-//   cursor: text;
-//   white-space: pre-wrap;
-//   word-wrap: break-word;
-//   border-width: 0;
-//   border-top-width: 0;
-//   border-right-width: 0;
-//   border-bottom-width: 0;
-//   border-left-width: 0;
-//   border-style: none;
-//   border-color: initial;
-//   border-image: none;
-//   padding-left: 1.3rem;
-//   min-width: 100%;
-//   box-sizing: inherit;
-// }
