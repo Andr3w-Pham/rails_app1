@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  get 'follow/page'
   root 'home#page'
   resources :posts
   resources :profiles
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     member do
       put 'like', to:"blogs#vote"
     end
-       resources :comments, only: [:create, :new, :destroy]
+       resources :comments
   end
   # devise_for :users
     devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}

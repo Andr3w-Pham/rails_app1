@@ -2,16 +2,15 @@ class FollowingsController < ApplicationController
   def create
     @following = current_user.followings.new(:follower_id => params[:follower_id])
     @following.user_id = current_user.id
-    flash[:notice] = "Followed"
+    flash[:notice] = "Followed succesfully"
     @following.save
-    redirect_to root_path
+    redirect_to follow_page_path
   end
   def destroy
-    @following = Following.find(params[:id])
+    @following = current_user.followings.find_by(:follower_id => params[:id])
     @following.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Unfollowed' }
-      format.json { head :no_content }
-    end
+    flash[:notice] = "Unfollowed"
+    redirect_to follow_page_path
   end
+
 end
