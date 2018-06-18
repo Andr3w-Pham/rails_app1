@@ -12,9 +12,9 @@
            <br>
            <!-- if user.followings is an empty array, provide a link to follow -->
            <% if user.followers.include?(current_user) %>
-               <a href="#" class="btn btn-danger follow"> Requested </a>
+               <%= link_to 'Unfollow', following_path(user), method: :delete, class: "btn btn-danger follow"%>
             <% else %>
-             <%= link_to 'follow', followings_path(:follower_id => user), method: :post, class: "btn btn-primary follow"%>
+             <%= link_to 'Follow', followings_path(:follower_id => user), method: :post, class: "btn btn-primary follow"%>
             <% end %>
 
 

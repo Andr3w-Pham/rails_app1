@@ -7,7 +7,7 @@ class FollowingsController < ApplicationController
     redirect_to follow_page_path
   end
   def destroy
-    @following = current_user.followings.find(params[:id])
+    @following = current_user.followings.find_by(:follower_id => params[:id])
     @following.destroy
     flash[:notice] = "Unfollowed"
     redirect_to follow_page_path
