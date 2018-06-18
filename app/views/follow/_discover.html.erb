@@ -29,8 +29,7 @@
   <h4 class="shade-grey,card">Profiles followed by <%= current_user.profile.name %></h4>
   <ul>
     <% current_user.followings.each do |following|  %>
-    <li><%= following.followee.profile.name %>
-    <%= link_to 'Unfollow', following, method: :delete%></li>
+    <li><%= following.followee.profile.name %></li>
     <% end %>
   </ul>
 
