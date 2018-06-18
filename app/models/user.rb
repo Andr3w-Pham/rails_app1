@@ -1,9 +1,9 @@
 class User < ApplicationRecord
-  has_many :followings
-  has_many :followees, through: :followings
+  has_many :followings, dependent: :destroy
+  has_many :followees, through: :followings, dependent: :destroy
 
-  has_many :reverse_followings, class_name: 'Following',foreign_key: 'follower_id'
-  has_many :followers, through: :reverse_followings
+  has_many :reverse_followings, class_name: 'Following',foreign_key: 'follower_id', dependent: :destroy
+  has_many :followers, through: :reverse_followings, dependent: :destroy
   acts_as_voter
   has_one :profile
   has_many :comments
