@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  get 'follow/page'
   root 'home#page'
   resources :posts
   resources :profiles
