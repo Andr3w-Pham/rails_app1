@@ -9,20 +9,36 @@
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 
-    <form class="form-inline my-2 my-lg-0">
+    <!-- <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    </form> -->
 
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
         <a class="nav-link" href="/users/sign_in">Sign In<i class="fas fa-sign-in-alt"></i></a>
       </li>
-      <li class="nav-item">
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt"%>
-      </li>
+
       <li class="nav-item">
         <a class="nav-link" href="/follow/page">Discover People <i class="far fa-handshake"></i></a>
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="/sellers/new">Become a Seller!</a> -->
+        <%= link_to 'Become a Seller',sellers_path,method: :post  %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/products">Products</a>
+      </li>
+
+
+
+
+
+
+
+
+      <li class="nav-item">
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt"%>
       </li>
     </ul>
   </div>

@@ -28,7 +28,26 @@
             <p class="card-text">
               <%= blog.status %>
               <br>
-              <%= render 'comments/page' %>
+              <%= form_for([blog,Comment.new]) do |f| %>
+                <%= f.text_area :body, placeholder: "Add a comment"%>
+                <br>
+                <%= f.submit "Add comment", class: "btn btn-default pull-right" %>
+              <% end %>
+              <br>
+              <% blog.comments.order(created_at: :desc).each do |comment| %>
+                <p>
+                  <strong><%= comment.user.profile.name %>:</strong>
+                  <br>
+                  <%= comment.body %>
+                  <br>
+                  <span class="date"><%= time_ago_in_words(comment.created_at)%> ago</span>
+                  <br>
+                  <%= link_to "Delete Comment", [comment.blog, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+                </p>
+                <br>
+                <br>
+              <% end %>
+              <span class="date"><%= blog.created_at.strftime("%d %B %Y")%></span>
             </p>
           </div>
         </div>

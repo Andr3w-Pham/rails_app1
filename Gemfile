@@ -10,7 +10,8 @@ gem 'rails', '~> 5.2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
- gem 'record_tag_helper', '~> 1.0'
+gem 'mailgun-ruby', '~>1.1.6'
+gem 'record_tag_helper', '~> 1.0'
 gem 'bootstrap', '~> 4.1.1'
 gem 'sass-rails', '>= 3.2'
 gem 'jquery-rails'

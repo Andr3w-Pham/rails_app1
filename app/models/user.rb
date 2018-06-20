@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_followings, dependent: :destroy
   acts_as_voter
   has_one :profile
+  has_one :seller
   has_many :comments
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
