@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_19_112444) do
+ActiveRecord::Schema.define(version: 2018_06_20_043019) do
 
   create_table "attachments", force: :cascade do |t|
     t.string "image"
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 2018_06_19_112444) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "profile_id"
+    t.index ["profile_id"], name: "index_sellers_on_profile_id"
     t.index ["user_id"], name: "index_sellers_on_user_id"
   end
 
