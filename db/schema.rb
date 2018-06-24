@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_13_014304) do
+ActiveRecord::Schema.define(version: 2018_06_20_043019) do
 
   create_table "attachments", force: :cascade do |t|
     t.string "image"
@@ -55,6 +55,18 @@ ActiveRecord::Schema.define(version: 2018_06_13_014304) do
     t.index ["profile_id"], name: "index_posts_on_profile_id"
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price"
+    t.integer "qty"
+    t.text "description"
+    t.integer "seller_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "picture"
+    t.index ["seller_id"], name: "index_products_on_seller_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "name"
     t.date "dob"
@@ -65,6 +77,15 @@ ActiveRecord::Schema.define(version: 2018_06_13_014304) do
     t.datetime "updated_at", null: false
     t.string "picture"
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "sellers", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "profile_id"
+    t.index ["profile_id"], name: "index_sellers_on_profile_id"
+    t.index ["user_id"], name: "index_sellers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,7 @@
+<% if current_user %>
+  <h1>Confirm</h1>
+
+  <%= render 'form', seller: @seller %>
+
+    <%= link_to 'Cancel', sellers_path %>
+<% end %>

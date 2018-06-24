@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
-
+  get 'contact', to: "contact#index"
+  post 'contact', to: "contact#mail"
+  get 'contact/index'
+  get 'contact/mail'
+  get 'contact/sent'
+  resources :products
+  resources :sellers
   get 'follow/page'
   root 'home#page'
+  resources :charges
   resources :posts
   resources :profiles
   resources :followings
