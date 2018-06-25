@@ -1,17 +1,22 @@
 <p id="notice"><%= notice %></p>
+<p>
+  <strong>Seller:</strong>
+  <%= @product.seller.user.profile.name %>
+</p>
+
 
 <p>
-  <strong>Name:</strong>
+  <strong>Product Name:</strong>
   <%= @product.name %>
 </p>
 
 <p>
   <strong>Price:</strong>
-  $<%= @product.price %>
+  $<%= @product.price %>0
 </p>
 
 <p>
-  <strong>Qty:</strong>
+  <strong>Current Stock:</strong>
   <%= @product.qty %>
 </p>
 
@@ -22,11 +27,18 @@
 
 <p>
   <strong>
-    <%= image_tag(@product.picture_url, width: "30%", height:"30%")%>
+    <%= image_tag(@product.picture_url, width: "30%", height:"30%",class:"product-pic")%>
   </strong>
 </p>
+<br>
+<!-- note: scenario 1: by default the path sometimes has an id eg: product_path -> /products/:id in this case
+:id is expected to be passed -> and it is mandatory: eg: edit_product_path(@product)
+in this case @product value is assigned t the variable :id
+
+scenario 2: the route doesnot expect any params to be passed, you pass an argument to the route that is not expecting any params: eg: new_charge_path(:elephant => @product) -->
+<%= link_to 'Buy', new_charge_path(:id => @product.id), class:"btn btn-primary" %>
+<br><br><br>
 
 
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Edit', edit_product_path(@product.id) %> |
 <%= link_to 'Back', products_path %>

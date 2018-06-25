@@ -41,10 +41,25 @@ body{
   // margin-left: %;
   max-width: 58%;
 }
+
 .card{
   min-width: 100%;
   height: 100%;
   margin-top: 2rem;
+  // margin: 5rem;
+}
+
+.products-home{
+  // margin-left: %;
+  max-width: 58%;
+}
+
+.card-product{
+  min-width: 100%;
+  height: 100%;
+  margin-top: 2rem;
+  margin-left: 60%;
+  border-color: blue;
   // margin: 5rem;
 }
 .profile-post{
@@ -67,6 +82,10 @@ body{
 .post-pic{
   width:100%;
   height:100%;
+}
+
+.card-body-product{
+
 }
 
 .card-title {
