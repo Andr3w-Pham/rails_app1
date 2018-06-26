@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :buyer_sellers
   get 'contact', to: "contact#index"
   post 'contact', to: "contact#mail"
   get 'contact/index'
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
   resources :sellers
   get 'follow/page'
   root 'home#page'
-  resources :charges
+  resources :charges, only: [:new, :create]
   resources :posts
   resources :profiles
   resources :followings

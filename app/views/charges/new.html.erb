@@ -5,14 +5,46 @@
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
-    <label class="amount">
-      <span>Amount: $5.00</span>
-    </label>
-  </article>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Check Out"
-          data-amount="500"
-          data-locale="auto"></script>
-<% end %>
+    <div class="posts-home">
+      <div class="card-product">
+        <div class="card-body">
+          <p>
+            <strong>Seller:</strong>
+            <%= @product.seller.user.profile.name %>
+          </p>
+          <p>
+            <strong>Product Name:</strong>
+            <%= @product.name %>
+          </p>
+          <label class="amount">
+            <strong>Price:</strong>
+            <span>$<%= @amount %>0</span>
+          </label>
+          <p>
+            <strong>Current Stock:</strong>
+            <%= @product.qty %>
+          </p>
+          <p>
+            <strong>Description:</strong>
+            <%= @product.description %>
+          </p>
+          <p>
+            <strong>
+              <%= image_tag(@product.picture_url, width: "30%", height:"30%")%>
+            </strong>
+            <br><br>
+            <script
+              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= ENV["STRIPE_PUBLISHABLE_KEY"] %>"
+              data-amount="<%= @amount * 100 %>"
+              data-name="AndrewPDev"
+              data-description="Check Out"
+              data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUdH2c5YiqpixbjFEWNOyKxS8Ev2Hw-xHELVWqDiGbeBcUS_9x"
+              data-locale="auto"
+              data-currency="aud"></script>
+              <%= hidden_field_tag :price, @product.price %>
+          </div>
+        </div>
+      </div>
+    </article>
+  <% end %>
