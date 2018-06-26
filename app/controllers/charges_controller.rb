@@ -6,7 +6,7 @@ class ChargesController < ApplicationController
 
   def create
     # Amount in cents
-    @amount = params[:price].to_i
+    @amount = params[:price].to_i * 100
     puts "111111111111"
     logger.debug(@amount)
     puts "111111111111"
