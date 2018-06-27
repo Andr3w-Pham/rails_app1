@@ -1,10 +1,15 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    # if index method is called from the search bar, filter out the products based on title of the product
+    if params[:search]
+      # to keep the controller skinny, define the logic involved in filtering out the product by title as method search in the model product
+      @products = Product.search(params[:search]).order("created_at DESC")
+    else
+      @products = Product.all
+    end
   end
 
   # GET /products/1
@@ -66,6 +71,10 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
+    end
+
+    def set_seller
+     @seller = Seller.find(params[:seller_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

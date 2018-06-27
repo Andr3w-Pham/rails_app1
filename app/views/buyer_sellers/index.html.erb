@@ -14,8 +14,8 @@
   <tbody>
     <% @buyer_sellers.each do |buyer_seller| %>
       <tr>
-        <td><%= buyer_seller.user %></td>
-        <td><%= buyer_seller.seller %></td>
+        <!-- <td><%= buyer_seller.user %></td>
+        <td><%= buyer_seller.seller %></td> -->
         <td><%= link_to 'Show', buyer_seller %></td>
         <td><%= link_to 'Edit', edit_buyer_seller_path(buyer_seller) %></td>
         <td><%= link_to 'Destroy', buyer_seller, method: :delete, data: { confirm: 'Are you sure?' } %></td>

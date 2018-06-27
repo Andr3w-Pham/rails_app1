@@ -1,5 +1,9 @@
 class ChargesController < ApplicationController
   before_action :set_product, only: [:new, :show, :edit, :update, :destroy]
+  def page
+    @product = Product.find(params[:product_id])
+  end
+
   def new
     @amount = @product.price
   end
