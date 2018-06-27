@@ -7,7 +7,7 @@
     <%= f.input :name %>
     <%= f.input :bio %>
     <%= f.input :location %>
-    <%= f.input :dob %>
+    <%= f.input :dob, order: [:day, :month, :year], start_year:Date.today.year - 12 , end_year:Date.today.year - 90 , label: "Date of birth" %>
     <%= f.input :picture, as: :file %>
     <%= f.input :picture_cache , as: :hidden %>
     <!-- <%= f.association :user %> -->
