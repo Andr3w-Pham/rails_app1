@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  validates :email, presence: true
   has_many :followings, dependent: :destroy
   has_many :followees, through: :followings, dependent: :destroy
 
