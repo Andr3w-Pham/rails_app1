@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     member do
       put 'like', to:"blogs#vote"
     end
-       resources :comments
+      resources :comments
   end
   # devise_for :users
     devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
