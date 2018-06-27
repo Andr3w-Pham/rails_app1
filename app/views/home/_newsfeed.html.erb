@@ -55,7 +55,6 @@
     <% end %>
   </div>
 <% else %>
-  <!-- <%= link_to 'create profile', new_profile_path, class: "btn btn-primary" %> -->
-  <!-- instead of providing a button to create a profiel, render the new profile form for better user experience -->
+
   <%= render 'profiles/form', profile: @profile %>
 <% end %>
