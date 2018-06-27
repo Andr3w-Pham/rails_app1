@@ -1,7 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Products</h1>
-
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col-md-4">
+       <div class="card">
+           <%= image_tag(product.picture_url, class: "product-pic") %>
+           <span class="follow-profile-name"><%=product.name %></span>
+           <%= link_to 'Buy',buyer_sellers_path(:product_id => product.id), method: :post, class: "btn btn-primary" %>
+       </div>
+    </div>
+    <% end %>
+  <br><br>
+</div>
+<br><br>
 <table class="table">
   <thead>
     <tr>

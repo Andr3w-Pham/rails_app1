@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'charges/page'
   resources :buyer_sellers
   get 'contact', to: "contact#index"
   post 'contact', to: "contact#mail"

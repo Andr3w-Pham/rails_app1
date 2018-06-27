@@ -1,6 +1,6 @@
 class BuyerSellersController < ApplicationController
-  before_action :set_buyer_seller, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_buyer_seller, only: %i[show edit update destroy]
+  before_action :set_product
   # GET /buyer_sellers
   # GET /buyer_sellers.json
   def index
@@ -9,8 +9,7 @@ class BuyerSellersController < ApplicationController
 
   # GET /buyer_sellers/1
   # GET /buyer_sellers/1.json
-  def show
-  end
+  def show; end
 
   # GET /buyer_sellers/new
   def new
@@ -18,17 +17,18 @@ class BuyerSellersController < ApplicationController
   end
 
   # GET /buyer_sellers/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /buyer_sellers
   # POST /buyer_sellers.json
   def create
-    @buyer_seller = BuyerSeller.new(buyer_seller_params)
+    @buyer_seller = BuyerSeller.new
+    @buyer_seller.seller_id = @product.seller_id
+    @buyer_seller.user_id = current_user.id
 
     respond_to do |format|
       if @buyer_seller.save
-        format.html { redirect_to @buyer_seller, notice: 'Buyer seller was successfully created.' }
+        format.html { redirect_to charges_page_path(product_id: @product.id), notice: 'Buyer seller was successfully created.' }
         format.json { render :show, status: :created, location: @buyer_seller }
       else
         format.html { render :new }
@@ -62,13 +62,18 @@ class BuyerSellersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_buyer_seller
-      @buyer_seller = BuyerSeller.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def buyer_seller_params
-      params.require(:buyer_seller).permit(:user_id, :seller_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_buyer_seller
+    @buyer_seller = BuyerSeller.find(params[:id])
+  end
+
+  def set_product
+    @product = Product.find(params[:product_id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def buyer_seller_params
+    params.require(:buyer_seller).permit(:user_id, :seller_id)
+  end
 end
