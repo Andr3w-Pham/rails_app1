@@ -22,7 +22,6 @@ class ChargesController < ApplicationController
     amount: @amount,
     description: 'Rails Stripe customer',
     currency: 'aud',
-    source: 'tok_visa',
     receipt_email: 'andrew.webdev09@gmail.com',
     })
 
