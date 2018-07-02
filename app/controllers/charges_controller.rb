@@ -17,13 +17,15 @@ class ChargesController < ApplicationController
       source: params[:stripeToken]
     )
 
-    charge = Stripe::Charge.create(
-      customer: customer.id,
-      amount: @amount,
-      description: 'Rails Stripe customer',
-      receipt_email: 'andrew.webdev09@gmail.com',
-      currency: 'AUD'
-    )
+    charge = Stripe::Charge.create({
+    customer: customer.id,
+    amount: @amount,
+    description: 'Rails Stripe customer',
+    currency: 'aud',
+    source: 'tok_visa',
+    receipt_email: 'andrew.webdev09@gmail.com',
+    })
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
