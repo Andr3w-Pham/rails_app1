@@ -11,9 +11,6 @@ class ChargesController < ApplicationController
   def create
     # Amount in cents
     @amount = params[:price].to_i * 100
-    puts "111111111111"
-    logger.debug(@amount)
-    puts "111111111111"
 
     customer = Stripe::Customer.create(
       email: params[:stripeEmail],
@@ -24,6 +21,7 @@ class ChargesController < ApplicationController
       customer: customer.id,
       amount: @amount,
       description: 'Rails Stripe customer',
+      receipt_email: 'andrew.webdev09@gmail.com',
       currency: 'AUD'
     )
   rescue Stripe::CardError => e
