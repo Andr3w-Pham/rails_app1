@@ -17,7 +17,7 @@ class ChargesController < ApplicationController
       source: params[:stripeToken]
     )
 
-    Stripe.api_key = ENV["STRIPE_PUBLISHABLE_KEY"] 
+    Stripe.api_key = ENV["STRIPE_SECRET_KEY"] 
     charge = Stripe::Charge.create({
     customer: customer.id,
     amount: @amount,
